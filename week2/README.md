@@ -30,7 +30,7 @@ progclub directory (user/pass is vagrant/vagrant):
 ```
 vagrant ssh
 ```
-(optional) You can also ssh to the VM from elsewhere
+(optional, probably Linux/Mac only) You can also ssh to the VM from elsewhere
 ```
 vagrant ssh --host myvm >> ~/.ssh/config
 ssh myvm
