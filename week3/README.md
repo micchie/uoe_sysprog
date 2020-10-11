@@ -6,7 +6,7 @@ Please also refer to the [slide](3.pdf).
 
 ## 1. Integer and Character
 
-Open `3a.c` (e.g., using vim`) and the slide page 3.
+Open `3a.c` (e.g., using `vim`) and the slide page 3.
 Also, compile (`gcc ./3a.c`) and execute (`./a.out`) to see the output.
 The first `printf()` prints the address (location in the virtual memory) of `i`,
 the value (content) of `i`, the address of `c` and the value (content) of `c`.
