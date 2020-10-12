@@ -52,15 +52,38 @@ it finds the target row.
 
 The code look like `3c.c`. You can try this code by compiling the file and
 execute `./a.out kiwi` (you can change "kiwi" to another item available in
-the table). You will realize the output is wrong; you need to implement a
-function `scmp()`, which currently always returns 0, to return 0 if two strings
-are identical and otherwise a non-zero value. The correct answer can be found in `3c2.c`.
-Also take your time to understand the code. The first `for` loop builds the
-table in the slide, and the second one looks up the key provided on execution
-(e.g., "kiwi").
-
+the table).
+You will realize the output is wrong; you need to implement a
+function `scmp()`, which currently always returns 0, to return 0 only if two
+strings are identical and otherwise a non-zero value. The correct implementation
+can be found in `3c2.c`.
+In `3c.c`, the first `for` loop builds the table in the slide, and the second
+one looks up the key provided on execution (e.g., "kiwi").  Take your time to
+understand the code.
 
 We now realize this algorithm would be slow if the table is large.
 This is where a *hash table* comes in to achieve constant-time lookup
 irrespective of the table size.
-```
+Take a look at the page 6 of the slide.
+The idea is to convert the key to an integer within a fixed range of value, say,
+0 to 127. The simplest one is the reminder of the sum of the string characters in integer format (e.g., 'kiwi' is (107+105+119+105) % 128 = 52).
+
+In `3d.c`, the first `for` loop populates the hash table based on this principle.
+The inner `for` loop adds up the characters in integer format to `hash`, and
+store the pointer to the target row (`key[i]`) in the hashtable slot whose index
+is the hash value.
+Take your time to understand these code.
+
+It is trivial to look up the hash table. Like `3c.c`, this program takes a
+key to find the price as argument (e.g., if you execute the program with
+`./a.out kiwi`, kiwi is the key, and stored in `char *test`). We just obtain the hash value for
+the key (this part is missing in `3d.c`, so implement it by yourself; if you
+cannot, look at `3d2.c`), and look up the hash table array using the hash value as the index.
+Since the content is a pointer to the target row in the main table, we can
+obtain the price straight away by looking at the particular part of the row
+(i.e., 9th byte).
+
+This hash table clearly has a flaw. If multiple keys have the same hash value,
+the first one will be overwritten. To avoid this, in practice, many cases use a
+linked list for each hash table entry (hash bucket), assuming the list does not
+become too long.
