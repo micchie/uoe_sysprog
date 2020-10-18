@@ -23,7 +23,7 @@ You will notice that the code opens the destination file with `O_WRONLY|O_CREAT`
 This code copies data at most 1924 bytes, as specified in the buffer size.
 
 
-### 2. On-Disk Data Structures
+## 2. On-Disk Data Structures
 
 In the [week3](../week3/README.md) we created a simple in-memory key-value
 store (see the page 2 of [slide](4.pdf)), which creates a database (table of
