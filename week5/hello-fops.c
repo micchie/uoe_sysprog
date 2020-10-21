@@ -88,8 +88,6 @@ hello_init(void)
 		printk(KERN_ERR "%s cannot allocate %lu byte memory\n", __FUNCTION__, HELLO_MEMSIZ);
 		return -1;
 	}
-	spin_lock(&hello_mem_lock);
-	spin_unlock(&hello_mem_lock);
 
 	hello_dev = &hello_miscdev;
 	printk(KERN_INFO "loaded hello\n");
