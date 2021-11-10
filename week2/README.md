@@ -39,7 +39,7 @@ ssh myvm
 ## 3. Provision the VM
 ```
 sudo apt-get update
-sudo apt-get install build-essential git vim-nox linux-headers-4.19.0-9-amd64
+sudo apt-get install build-essential git vim-nox linux-headers-$(uname -r)
 ```
 
 ## 4. Hello World in the OS kernel
