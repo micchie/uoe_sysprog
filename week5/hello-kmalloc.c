@@ -10,7 +10,7 @@ MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Michio Honda");
 MODULE_DESCRIPTION("Hello World in the kernel.");
 
-#define DEVICE_NAME “hello”
+#define DEVICE_NAME "hello"
 static struct miscdevice *hello_dev;
 #define HELLO_MEMSIZ	1024
 static char *hello_mem;
