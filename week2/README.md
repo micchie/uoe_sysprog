@@ -16,7 +16,7 @@ Ubuntu would be slightly more popular, but that on Virtualbox has a problem with
 Install [Virtualbox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/).
 
 ## 2. Launch a VM
-Start a terminal (Linux/Mac) or command prompt (Windows)
+Start a terminal (Linux/Mac) or powershell (Windows)
 ```
 mkdir progclub
 cd progclub
@@ -30,9 +30,15 @@ progclub directory (user/pass is vagrant/vagrant):
 ```
 vagrant ssh
 ```
-(optional, probably Linux/Mac only) You can also ssh to the VM from elsewhere
+Optionally, you can also ssh to the VM from elsewhere \
+(Linux / Mac)
 ```
-vagrant ssh --host myvm >> ~/.ssh/config
+vagrant ssh-config --host myvm >> ~/.ssh/config
+ssh myvm
+```
+(Windows with PowerShell)
+```
+vagrant ssh-config --host myvm | ac ~/.ssh/config
 ssh myvm
 ```
 
